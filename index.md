@@ -1,4 +1,3 @@
-
 ## Publications
 
 2017-06-17, *[Setup OpenVAS as Master and Slave](setup-openvas-as-master-and-slave)*
