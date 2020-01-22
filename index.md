@@ -1,5 +1,7 @@
 ## Publications
 
+2019-01-22, *[Plotting Sentinel 5P Data](plotting-sentinel-5p-data)*
+
 2017-06-17, *[Setup OpenVAS as Master and Slave](setup-openvas-as-master-and-slave)*
 
 2017-01-07, *[Infinite Sets in Go](infinite-sets-in-go)*
