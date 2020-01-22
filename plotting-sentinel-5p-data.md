@@ -1,6 +1,6 @@
 # Plotting Sentinel 5P Data
 
-__Sven Haardiek, 2020-01-19__
+__Sven Haardiek, 2020-01-22__
 
 [Sentinel 5P](http://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-5P) is one of [ESA](https://www.esa.int/)'s earth observation satellites that are developed as part of the [Copernicus](https://www.esa.int/Applications/Observing_the_Earth/Copernicus) program.
 
@@ -9,7 +9,7 @@ It is dedicated to monitor air quality parameters and provides us with atmospher
 I am currently working with a small group of developers on a project called [Emissions API](https://emissions-api.org) that has the goal to create a web API to make it easier to access the data of Sentinel 5P and its successor, [Sentinel 5](https://earth.esa.int/web/guest/missions/esa-future-missions/sentinel-5).
 As part of this work we created some lightweight libraries to download data from the servers of the ESA and to process their data products.
 To verify that those libraries are working fine and to get a better understanding of the data, it is often useful to visualize the results.
-In this post, I would like to share with you how to download the data from the ESA and generate some plot it on a world map.
+In this post, I would like to share with you how to download the data from the ESA and generate plots with them.
 
 So, at the end we should look at something like this:
 
@@ -19,7 +19,7 @@ So, at the end we should look at something like this:
 
 We will be using the [Sentinel-5P Downloader](https://pypi.org/project/sentinel5dl/) to download the data from the ESA and [Sentinel-5 Algorithms](https://pypi.org/project/s5a/) to read and pre-process those data. Finally, for plotting we will be using [GeoPandas](http://geopandas.org/) which itself is using [Matplotlib](https://matplotlib.org/) and [Descartes](https://pypi.org/project/descartes/) internally.
 
-You can install those dependencies (probably in a virtual environment) like this:
+You can install those dependencies like this:
 ```bash
 $ pip install geopandas s5a sentinel5dl matplotlib descartes
 ```
@@ -188,7 +188,7 @@ data = s5a.load_ncfile(
 
 One and a half million points per data set is a lot.
 Luckily `s5a` does have some functionality to reduce this.
-First, note that every data point comes with a `quality` value (a basic measure of confidence in the 'correctness' of the measurement at hand).
+First, note that every data point comes with a `quality` value (a basic measure of confidence in the _correctness_ of the measurement at hand).
 With `s5a` we can drop points with poor quality quite easily.
 
 ```python
