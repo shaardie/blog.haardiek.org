@@ -15,8 +15,8 @@ especially
 [Generators](https://docs.python.org/3/tutorial/classes.html#generators) in my
 opinion and they are great.
 
-You can simply write a function and `yield` the next generated value on in each
-call, like shown [here](https://en.wikipedia.org/wiki/Iterator#Generators)
+You can simply write a function and `yield` the next generated value on each
+call, like shown [here](https://en.wikipedia.org/wiki/Iterator#Generators).
 
 ```python
 def fibonacci(limit):
@@ -54,8 +54,8 @@ func (f *fibonacci) Next() int {
 
 Okay, so now our struct is holding the last two values, which are needed to
 calculate the next Fibonacci number. Also `Next` should return the next
-Fibonacci number on every call. Let's check, if it working with the following
-code.
+Fibonacci number on every call. Let's check, if it is working with the
+following code.
 
 ```golang
 func main() {
@@ -119,7 +119,7 @@ done in nearly any language.
 
 ## Channels
 
-One cool thing about the generator in python is that there is no constructor
+One cool thing about the generator in Python is that there is no constructor
 and we can simply iterate over it. In Go we can achieve the same thing with
 channels. Let's take a look.
 
@@ -227,6 +227,6 @@ If you execute it, you get again `0 1 1 2 3 5 8 13 21 34 55 89 144 233 377
 So now you have hopefully a better understanding about generators in Go. You
 can also find the code on
 [GitHub](https://github.com/shaardie/golang-fibonacci-generators). If you have
-further questions or comments drop mail.
+further questions or comments drop me a mail.
 
 Happy hacking!
