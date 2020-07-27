@@ -3,8 +3,8 @@
 __Sven Haardiek, 2020-07-24__
 
 Lately I played a lot with [Haskell](https://www.haskell.org/) and I started to
-love [lazy evaluation](https://www.haskell.org/) as it let me define infinite
-sequences without the need of infinite memory.
+love [lazy evaluation](https://en.wikipedia.org/wiki/Lazy_evaluation) as it let
+me define infinite sequences without the need of infinite memory.
 
 But at work, I mostly write programs using [Python](https://www.python.org/) and
 [Go](https://golang.org/).
@@ -15,8 +15,9 @@ especially
 [Generators](https://docs.python.org/3/tutorial/classes.html#generators) in my
 opinion and they are great.
 
-You can simply write a function and `yield` the next generated value on each
-call, like shown [here](https://en.wikipedia.org/wiki/Iterator#Generators).
+You can write a function, just like you would do normally, and instead of a
+return, you `yield` the next generated value on each call, like shown
+[here](https://en.wikipedia.org/wiki/Iterator#Generators).
 
 ```python
 def fibonacci(limit):
@@ -52,10 +53,9 @@ func (f *fibonacci) Next() int {
 }
 ```
 
-Okay, so now our struct is holding the last two values, which are needed to
-calculate the next Fibonacci number. Also `Next` should return the next
-Fibonacci number on every call. Let's check, if it is working with the
-following code.
+Now our struct is holding the last two values, which are needed to calculate
+the next Fibonacci number. Also `Next` should return the next Fibonacci number
+on every call. Let's check, if it is working with the following code.
 
 ```golang
 func main() {
@@ -67,18 +67,17 @@ func main() {
 ```
 
 If we now run this code, we get `0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610
-987 1597 2584 4181` which are the same Fibonacci numbers as on
-[Wikipedia](https://en.wikipedia.org/wiki/Fibonacci_number#Sequence_properties),
-so I guess it is correct.
+987 1597 2584 4181` – mission accomplished.
 
-Our code does look nearly the same than the Python code we posted early, but we
-had to cache the result, since we not `yield`, but call the function from the
-beginning again. Also there is a limit in the Python code. We want to have that
-too. So let's write it.
+Our code looks nearly the same than the Python code we posted early, but we had
+to cache the result, since we not `yield`, but just call the whole function
+again.
+Also there is a limit in the Python code – we want that in our Go code too.
+So let's implement it.
 
 Our struct is now also holding a `limit` and we have to change the return value
 of our `Next` function, since we need to have an indicator when there are no
-values anymore.
+values left.
 
 ```golang
 type fibonacci struct {
@@ -112,7 +111,7 @@ func main() {
 ```
 
 If we run this, we get `0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597
-2584 4181`, which is looking exactly like the result before.
+2584 4181`, which is looking exactly like the result we were expecting.
 
 Until now there were not many surprises. Writing generators like this, can be
 done in nearly any language.
@@ -161,9 +160,10 @@ func main() {
 If we run this, we get again `0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
 1597 2584 4181`.
 
-So now we do have replicated the behaviour pretty good and we could stop here,
-but sometimes you want to iterate and sometimes we want to call `Next`. Let's
-try to combine those approaches.
+Now we have replicated the behaviour of generators in python already pretty
+closely, except one detail: the Next functionality. Because sometime we might
+want to iterate over the function, but in other cases we might want to call
+Next. Let's try to combine these two approaches.
 
 ## Combination
 
@@ -224,7 +224,7 @@ If you execute it, you get again `0 1 1 2 3 5 8 13 21 34 55 89 144 233 377
 
 ## Conclusion
 
-So now you have hopefully a better understanding about generators in Go. You
+So now you hopefully have a better understanding about generators in Go. You
 can also find the code on
 [GitHub](https://github.com/shaardie/golang-fibonacci-generators). If you have
 further questions or comments drop me a mail.
