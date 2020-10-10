@@ -2,6 +2,11 @@
 
 __Sven Haardiek, 2017-06-17__
 
+**I did not work with OpenVAS since 2018 and do not update this guide with
+every release. So if this guide is not working anymore and you need
+information about the setup, please take a look at the [Greenbone Community
+Forum](https://community.greenbone.net/).**
+
 Did you ever want to connect your different [OpenVAS](http://openvas.org/)
 installations and have all information about the vulnerabilities one one spot?
 Or do you have very strict network policies and want scan a separate
