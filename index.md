@@ -1,5 +1,7 @@
 ## Publications
 
+2020-01-09, *[Plotting Sentinel 5P Data Part 2](plotting-sentinel-5p-data-part-2)*
+
 2020-10-20, *[Set up and maintain Infrastructure with Docker and GitLab](infrastructure-with-docker-and-gitlab)*
 
 2020-07-24, *[Generators in Go](generators-in-go)*
