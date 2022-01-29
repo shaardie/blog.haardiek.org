@@ -1,6 +1,8 @@
 ## Publications
 
-2020-01-09, *[Plotting Sentinel 5P Data Part 2](plotting-sentinel-5p-data-part-2)*
+2022-01-29, *[Local IPv4 Address despite DS-Lite](local-ipv4-address-despite-ds-lite)*
+
+2021-01-09, *[Plotting Sentinel 5P Data Part 2](plotting-sentinel-5p-data-part-2)*
 
 2020-10-20, *[Set up and maintain Infrastructure with Docker and GitLab](infrastructure-with-docker-and-gitlab)*
 

@@ -177,7 +177,7 @@ The next file we want to look at is `prebook.yml`. This is our first Playbook.
   - name: ensure user is accessable with ssh key
     authorized_key:
       user: user
-      key: "{{ lookup('file', ssh_key) }}"
+      {% raw  %}key: "{{ lookup('file', ssh_key) }}"{% endraw %}
 ```
 
 Here is a short explanation of the different parts:
@@ -248,7 +248,7 @@ set and also under this user the commands run on the target system.
   - name: ensure user is accessable with ssh key
     authorized_key:
       user: user
-      key: "{{ lookup('file', ssh_key) }}"
+      {% raw  %}key: "{{ lookup('file', ssh_key) }}"{% endraw %}
 ```
 
 This part defines the tasks running on the target system. The different tasks
