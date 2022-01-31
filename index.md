@@ -1,6 +1,6 @@
 ## Publications
 
-2022-01-29, *[Local IPv4 Address despite DS-Lite](local-ipv4-address-despite-ds-lite)*
+2022-01-29, *[Global IPv4 Address despite DS-Lite](global-ipv4-address-despite-ds-lite)*
 
 2021-01-09, *[Plotting Sentinel 5P Data Part 2](plotting-sentinel-5p-data-part-2)*
 
