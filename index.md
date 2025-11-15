@@ -1,5 +1,7 @@
 ## Publications
 
+2025-11-15, *[DNS ACME Challenges with Bind9](dns-acme-challenges-with-bind9)*
+
 2022-01-29, *[Global IPv4 Address despite DS-Lite](global-ipv4-address-despite-ds-lite)*
 
 2021-01-09, *[Plotting Sentinel 5P Data Part 2](plotting-sentinel-5p-data-part-2)*
