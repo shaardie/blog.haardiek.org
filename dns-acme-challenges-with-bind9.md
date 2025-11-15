@@ -5,17 +5,17 @@ But since lately, I decided to try to rely less on big tech companies and do mor
 I tried a couple things like for example [acme-dns](https://github.com/joohoi/acme-dns), but it always felt a little strange to me that all those solution invent new APIs for this and everybody has to implement them for Cloudflare, acme-dns and all the other APIs out there.
 At that point I found out that there is [RFC2136](https://datatracker.ietf.org/doc/html/rfc2136) which describes dynamic DNS Updates directly via an DNS Request and also found out that there is an [Caddy Plugin](https://github.com/caddy-dns/rfc2136) for this.
 
-So I decided to say goodbye to Cloudflare and manage my own DNS Server and use dynamic DNS Update for certificates.
+So I decided to say goodbye to Cloudflare and manage my own DNS server and use dynamic DNS Update for certificates.
 This setup, I want to describe here.
 Maybe you also want to use less big tech.
 
 ## Prerequisites
 
-First of all, since others want to connect to your DNS Server or at least Let's Encrypt wants to for the challenges, you need to have a Server which is accessable from the Internet directly via IP.
+First of all, since others want to connect to your DNS server or at least Let's Encrypt wants to for the challenges, you need to have a server which is accessable from the Internet directly via IP.
 I decided to rent a pretty small and cheap VM for this by [netcup](https://www.netcup.com) and installed [Debian](https://www.debian.org) Trixie, but you do you.
 
-Also I decided to use [BIND 9](https://www.isc.org/bind/) as my DNS Server.
-As far as I am aware, there are multiple different DNS Server which support dynamic DNS Updates, like [Knot DNS](https://www.knot-dns.cz/) or [PowerDNS](https://www.powerdns.com/), but honestly, the main reason for me to use BIND 9 was that I already know about it and did not really care after the setup was done.
+Also I decided to use [BIND 9](https://www.isc.org/bind/) as my DNS server.
+As far as I am aware, there are multiple different DNS server which support dynamic DNS Updates, like [Knot DNS](https://www.knot-dns.cz/) or [PowerDNS](https://www.powerdns.com/), but honestly, the main reason for me to use BIND 9 was that I already know about it and did not really care after the setup was done.
 
 Also I needed to compile Caddy on my own which is pretty easy with [xcaddy](https://github.com/caddyserver/xcaddy).
 Since I wanted to deploy Caddy in a Container anyway, I just created my own image with, like this:
@@ -32,13 +32,13 @@ COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
 ## Configuring BIND 9
 
-Now we need to configure our own DNS Server.
+Now we need to configure our own DNS server.
 I will do this as briefly as possible and not bother you with details of my own BIND 9 configuration like DNSSec or IPv6.
 Also I will do this exemplary with my own domain `haardiek.org`.
 
 For the overview, there are two relevant directories for BIND 9 in Debian Trixie `/etc/bind` for static configuration and `/var/lib/bind` for dynamic files.
 
-First of all we need a way to make sure that we are the only ones able to update DNS Entries in our Zone, this is done by cryptographically signing the DNS messages we are going to send for updates.
+First of all we need a way to make sure that we are the only ones able to update DNS entries in our zone, this is done by cryptographically signing the DNS messages we are going to send for updates.
 For this we need a [TSIG Key](https://bind9.readthedocs.io/en/v9.18.2/advanced.html#tsig), which can be generated and stored like this:
 
 ```bash
@@ -156,7 +156,7 @@ Like described in [The RFC2136 DNS Provider Plugin](https://github.com/caddy-dns
 ```
 
 and referenced it in my `Caddyfile` with `import /etc/caddy/nsupdate.caddy`.
-After that DNS Challenges against my own Server were automatically used if no other configuration was present.
+After that DNS Challenges against my own server were automatically used if no other configuration was present.
 
 So creating a reverse proxy entry with proper TLS is now as easy as:
 
@@ -170,4 +170,4 @@ kuma.internal.haardiek.org {
 
 So that's my setup and I am pretty happy about because it reduces my reliance on big tech companies at least a bit.
 
-Setting is up was a bit fiddly at the beginning and the big DNS Servers are not the most user friendly, but I think this solution should be quite solid for now.
+Setting is up was a bit fiddly at the beginning and the big DNS servers are not the most user friendly, but I think this solution should be quite solid for now.
