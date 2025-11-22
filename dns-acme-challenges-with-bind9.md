@@ -1,5 +1,7 @@
 # DNS ACME Challenges with BIND 9
 
+__Sven Haardiek, 2025-11-15__
+
 For my homelab I always used [Caddy](https://caddyserver.com/) as my reverse Proxy and because its not directly accessible from the internet, I decided to use ACME DNS Challenges with [Cloudflare](https://www.cloudflare.com) for my [Let's Encrypt](https://letsencrypt.org) certificates.
 But since lately, I decided to try to rely less on big tech companies and do more stuff on my own.
 I tried a couple things like for example [acme-dns](https://github.com/joohoi/acme-dns), but it always felt a little strange to me that all those solution invent new APIs for this and everybody has to implement them for Cloudflare, acme-dns and all the other APIs out there.

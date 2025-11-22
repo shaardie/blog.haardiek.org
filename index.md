@@ -1,5 +1,11 @@
 ## Publications
 
+2025-11-25, *[Networking - Switch](networking-switch)*
+
+2025-11-25, *[Networking - Direct Connection](networking-direct-connection)*
+
+2025-11-25, *[Networking - Introduction](networking-intro)*
+
 2025-11-15, *[DNS ACME Challenges with Bind9](dns-acme-challenges-with-bind9)*
 
 2022-01-29, *[Global IPv4 Address despite DS-Lite](global-ipv4-address-despite-ds-lite)*
