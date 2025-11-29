@@ -1,5 +1,7 @@
 ## Publications
 
+2025-11-29, *[Networking - VLAN](networking-vlan)*
+
 2025-11-25, *[Networking - Switch](networking-switch)*
 
 2025-11-25, *[Networking - Direct Connection](networking-direct-connection)*
